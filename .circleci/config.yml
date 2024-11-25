@@ -19,33 +19,33 @@ jobs:
             . venv/bin/activate
             pip install --upgrade pip
             pip install -r requirements.txt
-      # # Step 3: run linter
-      # - run:
-      #     name: run PEP8 on python file
-      #     command: |
-      #       . venv/bin/activate
-      #       flake8 calculator.py --statistics
-      # # Step 3: run tests
-      # - run:
-      #     name: run tests addition
-      #     command: |
-      #       . venv/bin/activate
-      #       pytest -v test_addition.py
+      # Step 3: run linter
+      - run:
+          name: run PEP8 on python file
+          command: |
+            . venv/bin/activate
+            flake8 calculator.py --statistics
+      # Step 3: run tests
+      - run:
+          name: run tests addition
+          command: |
+            . venv/bin/activate
+            pytest -v test_addition.py
       
-      # - run:
-      #     name: run tests subtract
-      #     command: |
-      #       . venv/bin/activate
-      #       pytest -v test_substract.py
+      - run:
+          name: run tests subtract
+          command: |
+            . venv/bin/activate
+            pytest -v test_substract.py
 
-      # - run:
-      #     name: run tests multiply
-      #     command: |
-      #       . venv/bin/activate
-      #       pytest -v test_multiply.py
-      # # Step 3: run coverage test
-      # - run:
-      #     name: run coverage test
-      #     command: |
-      #       . venv/bin/activate
-      #       pytest -v --cov=calculator
+      - run:
+          name: run tests multiply
+          command: |
+            . venv/bin/activate
+            pytest -v test_multiply.py
+      # Step 3: run coverage test
+      - run:
+          name: run coverage test
+          command: |
+            . venv/bin/activate
+            pytest -v --cov=calculator
