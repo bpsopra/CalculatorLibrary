@@ -4,7 +4,9 @@ jobs:
   build:
     docker:
       - image: cimg/python:3.10.11
-    filters: pipeline.git.branch == "main"
+    filters:
+      branches:
+        only: /main 
 
     working_directory: ~/repo
 
