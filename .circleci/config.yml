@@ -24,7 +24,7 @@ jobs:
           name: run PEP8 on python file
           command: |
             . venv/bin/activate
-            flake8 calculator.py --statistics
+            flake8 -v calculator.py --statistics
       # Step 3: run tests
       - run:
           name: run tests addition
