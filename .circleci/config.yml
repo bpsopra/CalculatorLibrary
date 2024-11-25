@@ -49,3 +49,9 @@ jobs:
           command: |
             . venv/bin/activate
             pytest -v --cov=calculator
+      
+      - run:
+          name: OK
+          command: |
+            . venv/bin/activate
+            echo "everything is good"
