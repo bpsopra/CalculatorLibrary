@@ -8,9 +8,12 @@ jobs:
     # working_directory: ~/repo
 
     steps:
-      # Step 1: obtain repo from GitHub
+      # Step 1: obtain repo from GitHub qnd get python version
       - checkout
-      - run: python --version
+      - run: 
+          name: Get python version
+          command: python --version
+
       # Step 2: create virtual env and install dependencies
       - run:
           name: install dependencies
@@ -19,13 +22,15 @@ jobs:
             . venv/bin/activate
             pip install --upgrade pip
             pip install -r requirements.txt
+
       # Step 3: run linter
       - run:
           name: run PEP8 on python file
           command: |
             . venv/bin/activate
             flake8 -v calculator.py --statistics
-      # Step 3: run tests
+      
+      # Step 4: run tests
       - run:
           name: run tests addition
           command: |
@@ -43,15 +48,23 @@ jobs:
           command: |
             . venv/bin/activate
             pytest -v test_multiply.py
-      # Step 3: run coverage test
+      
+      - run:
+          name: run tests divide
+          command: |
+            . venv/bin/activate
+            pytest -v test_division.py
+
+      # Step 5: run coverage test
       - run:
           name: run coverage test
           command: |
             . venv/bin/activate
             pytest -v --cov=calculator
       
+      # Step 6: All is good message
       - run:
           name: OK
           command: |
             . venv/bin/activate
-            echo "everything is good"
+            echo "Everything is good"
