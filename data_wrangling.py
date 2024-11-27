@@ -26,15 +26,15 @@ print("NUMERIC COLS:",numeric_cols)
 print(df[numeric_cols].dtypes)
 
 
-# L_rand_nums = random.sample(range(1, 100), 2)
-# constant = calculator.add(L_rand_nums[0],L_rand_nums[1])
+L_rand_nums = random.sample(range(1, 100), 2)
+constant = calculator.add(L_rand_nums[0],L_rand_nums[1])
 
-# df_numeric = df[numeric_cols]
-# df_numeric["PAY_0"] = df_numeric["PAY_0"] .apply(lambda x: x + constant)
-# df_numeric_normalized = (df_numeric-df_numeric.min())/(df_numeric.max()-df_numeric.min())
+df_numeric = df[numeric_cols]
+df_numeric["PAY_0"] = df_numeric["PAY_0"] .apply(lambda x: x + constant)
+df_numeric_normalized = (df_numeric-df_numeric.min())/(df_numeric.max()-df_numeric.min())
 
-# df_normalized_all = pd.concat([df[string_cols],df_numeric_normalized], axis= 1)
+df_normalized_all = pd.concat([df[string_cols],df_numeric_normalized], axis= 1)
 
-# # Get 5 first rows
-# print(df_normalized_all.head())
+# Get 5 first rows
+print(df_normalized_all.head())
 
