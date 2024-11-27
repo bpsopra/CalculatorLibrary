@@ -67,7 +67,7 @@ jobs:
           name: run data wrangling
           command: |
             . venv/bin/activate
-            py -m data_wrangling.py
+            python3 -m data_wrangling.py
       
       # Step 7: All is good message
       - run:
