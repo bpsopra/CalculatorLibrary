@@ -22,8 +22,12 @@ jobs:
             . venv/bin/activate
             pip install --upgrade pip
             pip install -r requirements.txt
+  test:
+    docker:
+      - image: cimg/python:3.10.11
 
       # Step 3: run linter
+      - checkout
       - run:
           name: run PEP8 on python file
           command: |
@@ -61,10 +65,3 @@ jobs:
           command: |
             . venv/bin/activate
             pytest -v --cov=calculator
-      
-      # Step 6: All is good message
-      - run:
-          name: OK
-          command: |
-            . venv/bin/activate
-            echo "Everything is good"
