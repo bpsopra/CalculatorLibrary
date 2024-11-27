@@ -13,15 +13,18 @@ df = df.rename(columns={"DEFAULT": "Y"})
 df[['PAY_0','PAY_2']] = df[['PAY_0','PAY_2']].apply(lambda x: x/1000)
 
 # Data normalization
+string_cols = ["ID","SEX","EDUCATION","MARRIAGE","Y"]
+
+
+for col in string_cols:
+    df[col] = df[col].astype(str)
+
+print("STRING COLS:",df[string_cols].dtypes)
 
 numeric_cols = df.select_dtypes(include=np.number).columns.tolist()
 print("NUMERIC COLS:",numeric_cols)
 print(df[numeric_cols].dtypes)
-string_cols = ["ID","SEX","EDUCATION","MARRIAGE","Y"]
-print("STRING COLS:",df[string_cols].dtypes)
 
-# for col in string_cols:
-#     df[col] = df[col].astype(str)
 
 # L_rand_nums = random.sample(range(1, 100), 2)
 # constant = calculator.add(L_rand_nums[0],L_rand_nums[1])
