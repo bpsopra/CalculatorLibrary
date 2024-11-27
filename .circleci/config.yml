@@ -20,16 +20,17 @@ jobs:
 
     steps:
       # Step 2: create virtual env and install dependencies
+      - checkout
       - run:
-        name: install dependencies
-        command: |
-          python3 -m venv venv
-          . venv/bin/activate
-          pip install --upgrade pip
-          pip install -r requirements.txt
+          name: install dependencies
+          command: |
+            python3 -m venv venv
+            . venv/bin/activate
+            pip install --upgrade pip
+            pip install -r requirements.txt
 
       # Step 3: run linter
-      - checkout
+      
       - run:
           name: run PEP8 on python file
           command: |
