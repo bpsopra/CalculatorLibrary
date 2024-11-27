@@ -7,7 +7,7 @@ import random
 # Load data
 
 df = pd.read_excel('default_of_credit_card_clients_V2.xls',header = 0)
-df = df.rename(columns={"default payment next month": "Y"})
+df = df.rename(columns={"DEFAULT": "Y"})
 
 # Data processing
 df[['PAY_0','PAY_2']] = df[['PAY_0','PAY_2']].apply(lambda x: x/1000)
