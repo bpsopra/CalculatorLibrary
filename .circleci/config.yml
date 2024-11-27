@@ -61,8 +61,15 @@ jobs:
           command: |
             . venv/bin/activate
             pytest -v --cov=calculator
+
+      # Step 5: run data wrangling
+      - run:
+          name: run data wrangling
+          command: |
+            . venv/bin/activate
+            py -m data_wrangling.py
       
-      # Step 6: All is good message
+      # Step 7: All is good message
       - run:
           name: OK
           command: |
